@@ -9,6 +9,7 @@ const taskSchema = new Schema(
       enum: ["PENDING", "COMPLETED"],
       default: "PENDING",
     },
+    list: { type: mongoose.Schema.Types.ObjectId, ref: "List", default: null },
     urgent: { type: Boolean },
     importance: { type: Number, enum: [1, 2, 3, 4] },
     archived: { type: Boolean, default: false },

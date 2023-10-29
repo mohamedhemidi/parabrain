@@ -5,7 +5,7 @@ import createHttpError from "http-errors";
 export const viewTask: RequestHandler = async (req, res, next) => {
   const taskID = req.params.id;
   try {
-    const task = await TaskModel.findById(taskID).exec();
+    const task = await TaskModel.findById(taskID).populate("list").exec();
     // Check existing:
     if (!task) {
       throw createHttpError(404, "Task not found");

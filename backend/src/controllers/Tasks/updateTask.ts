@@ -5,6 +5,7 @@ export const updateTask: RequestHandler = async (req, res, next) => {
   try {
     const updatedTask = await TaskModel.findByIdAndUpdate(taskID, req.body, {
       new: true,
+      runValidators: true,
     });
     res
       .status(200)
