@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled, { ThemeProvider } from "styled-components";
+import "./App.css";
+import { Layout } from "./components/Layout";
+import Routes from "./Routes";
+import { darkTheme, lightTheme } from "./utils/UIVariables";
+import { useAppSelector } from "./utils/hooks";
 
+const SWrapper = styled.div`
+  background-color: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.text};
+  height: 100vh;
+  width: 100wh;
+`;
 function App() {
-  const [count, setCount] = useState(0)
+  const { theme } = useAppSelector((state) => state.UI);
+  const isDarkTheme = theme === "dark";
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+      <SWrapper>
+        <Layout>
+          <Routes />
+        </Layout>
+      </SWrapper>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
