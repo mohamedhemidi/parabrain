@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout";
 import Routes from "./Routes";
 import { darkTheme, lightTheme } from "./utils/UIVariables";
 import { useAppSelector } from "./utils/hooks";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const SWrapper = styled.div`
   background-color: ${(props) => props.theme.bg};
@@ -17,11 +18,13 @@ function App() {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <SWrapper>
-        <Layout>
-          <Routes />
-        </Layout>
-      </SWrapper>
+      <Router>
+        <SWrapper>
+          <Layout>
+            <Routes />
+          </Layout>
+        </SWrapper>
+      </Router>
     </ThemeProvider>
   );
 }

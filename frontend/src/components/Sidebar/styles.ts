@@ -1,6 +1,7 @@
 /** STYLES **/
 import styled from "styled-components";
 import { ISidebar } from "./Sidebar";
+import { Link } from "react-router-dom";
 
 export const SSidebar = styled.div<ISidebar>`
   height: 100vh;
@@ -37,4 +38,35 @@ export const SLogo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+export const SListItems = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+export const SItem = styled(Link)<ISidebar>`
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  color: ${(props) => props.theme.text};
+  padding: 0.7rem;
+
+  &:hover {
+    background-color: #605dff10;
+  }
+`;
+export const SIcon = styled.div<ISidebar>`
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: ${(props) => (props.collapsed ? "white" : "black")};
+  }
 `;
