@@ -1,8 +1,15 @@
+import { TaskCard } from "../../components/Containers/TaskCard";
+import { SContainer } from "./styles";
+
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <SContainer>
+      <TaskCard />
+      <TaskCard />
+      <TaskCard />
+      <TaskCard />
+      <TaskCard />
+    </SContainer>
   );
 };
 

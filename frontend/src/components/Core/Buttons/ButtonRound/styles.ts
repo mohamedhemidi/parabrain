@@ -1,12 +1,14 @@
 /** STYLES **/
 
 import styled from "styled-components";
+import { IBtnRound } from "./RoundBtn";
+import { BtnColors } from "../../../../utils/UIVariables";
 
-export const SWrapper = styled.div`
-  width: 50px;
-  height: 50px;
+export const SWrapper = styled.div<Pick<IBtnRound, "color">>`
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: #3498db;
+  background-color: ${(props) => BtnColors[`btn_color_${props.color}`]};
   border: none;
   cursor: pointer;
   display: inline-flex;
@@ -24,8 +26,8 @@ export const Icon = styled.div`
   justify-content: center;
   align-items: center;
   svg {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     fill: white;
   }
 `;

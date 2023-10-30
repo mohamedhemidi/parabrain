@@ -1,7 +1,7 @@
 import { useAppDispatch } from "../../utils/hooks";
 import { toggleSidebar } from "../../reducers/UIReducer";
 import MenuIcon from "../../assets/icons/menu";
-import { RoundBtn as Button } from "../../components/Core/Buttons";
+import { RoundBtn as Button } from "../Core/Buttons/ButtonRound";
 import { SContainer } from "./styles";
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <SContainer>
-      <Button icon={<MenuIcon />} onClick={handleSidebar} />
+      <Button color="Primary" icon={<MenuIcon />} onClick={handleSidebar} />
     </SContainer>
   );
 };
