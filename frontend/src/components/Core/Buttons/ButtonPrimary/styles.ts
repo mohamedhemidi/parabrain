@@ -6,7 +6,7 @@ import { BtnColors } from "../../../../utils/UIVariables";
 import { IBtnPrimary } from "./ButtonPrimary";
 
 export const SWrapper = styled.div<Pick<IBtnPrimary, "color">>`
-  width: 5rem;
+  width: 100%;
   height: 40px;
   border-radius: 10px;
   background-color: ${(props) => BtnColors[`btn_color_${props.color}`]};

@@ -12,3 +12,11 @@ export const SContainer = styled.div`
     overflow: hidden;
   }
 `;
+
+export const SHomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+`;

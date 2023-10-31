@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Loading } from "../../components/Collections/Loading";
 import { TaskCard } from "../../components/Containers/TaskCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { SContainer } from "./styles";
+import { SContainer, SHomeContainer } from "./styles";
 import { getTasks } from "../../services/tasks.services";
 
 const Home = () => {
@@ -19,14 +19,14 @@ const Home = () => {
     return <Loading />;
   }
   return (
-    <>
+    <SHomeContainer>
       <SContainer>
         {data &&
           data.items.map((t: any) => {
             return <TaskCard data={t} />;
           })}
       </SContainer>
-    </>
+    </SHomeContainer>
   );
 };
 
