@@ -15,11 +15,11 @@ import {
   SCardActions,
   SIconWrapper,
 } from "./styles";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TaskCard = ({ data }: any) => {
   const { _id, title, description, date, status } = data;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <SContainer>
@@ -46,7 +46,6 @@ const TaskCard = ({ data }: any) => {
         <SCardActions>
           <SIconWrapper onClick={() => navigate(`/task/${_id}`)}>
             <EditIcon />
-            {/* <Link to={`/task/${_id}`}>Edit</Link> */}
           </SIconWrapper>
           <SIconWrapper onClick={() => navigate(`/task/${_id}`)}>
             <RemoveIcon />

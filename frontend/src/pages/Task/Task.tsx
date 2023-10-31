@@ -157,9 +157,9 @@ const Task = () => {
           dateFormat={"yyyy/MM/dd"}
         />
         <ButtonPrimary label="Submit" color="Success" onClick={handleSubmit} />
-        <ButtonPrimary label="Delete" color="Danger" onClick={handleDelete} />
-        {/* <SubmitButton type="submit">Submit</SubmitButton>
-        <SubmitButton type="submit">Submit</SubmitButton> */}
+        {id ? (
+          <ButtonPrimary label="Delete" color="Danger" onClick={handleDelete} />
+        ) : null}
       </FormContainer>
     </SContainer>
   );
