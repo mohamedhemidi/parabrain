@@ -51,6 +51,7 @@ export const SPendingStatus = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: end;
   svg {
     width: 30px;
     height: 30px;

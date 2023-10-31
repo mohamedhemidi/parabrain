@@ -11,6 +11,10 @@ type ObjectKey = keyof typeof BASE_URL;
 export const PATH = {
   getLists: `${BASE_URL[ENV]}/lists`,
   getTasks: `${BASE_URL[ENV]}/tasks`,
+  updateTask: `${BASE_URL[ENV]}/tasks/update`,
+  deleteTask: `${BASE_URL[ENV]}/tasks/delete`,
+  createTask: `${BASE_URL[ENV]}/tasks`,
+
 };
 
 

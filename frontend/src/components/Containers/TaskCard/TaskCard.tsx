@@ -1,9 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CheckMarkIcon from "../../../assets/icons/CheckMark";
 import EditIcon from "../../../assets/icons/Edit";
 import RemoveIcon from "../../../assets/icons/Remove";
-import { openModal } from "../../../reducers/ModalReducer";
-import { useAppDispatch } from "../../../utils/hooks";
-// import TimerIcon from "../../../assets/icons/Timer";
+import TimerIcon from "../../../assets/icons/Timer";
 import {
   SContainer,
   SDate,
@@ -12,39 +11,44 @@ import {
   SRight,
   SCompletedStatus,
   STitle,
-  //   SPendingStatus,
+  SPendingStatus,
   SCardActions,
   SIconWrapper,
 } from "./styles";
+import { Link, useNavigate } from "react-router-dom";
 
-const TaskCard = () => {
-  const dispatch = useAppDispatch();
-  const handleOpenModal = () => {
-    dispatch(openModal());
-  };
+const TaskCard = ({ data }: any) => {
+  const { _id, title, description, date, status } = data;
+  const navigate = useNavigate()
+
   return (
     <SContainer>
       <SLeft>
-        <STitle onClick={handleOpenModal}>Get test done</STitle>
-        <SDesc>Finish the TryHackMe assignement as soon as possible</SDesc>
-        <SDate>31/10/2023</SDate>
+        <STitle onClick={() => navigate(`/task/${_id}`)}>{title}</STitle>
+        <SDesc>{description}</SDesc>
+        <SDate>{date}</SDate>
       </SLeft>
       <SRight>
-        <SCompletedStatus>
-          <SIconWrapper onClick={handleOpenModal}>
-            <CheckMarkIcon />
-          </SIconWrapper>
-        </SCompletedStatus>
-
-        {/* <SPendingStatus>
-          <TimerIcon />
-        </SPendingStatus> */}
+        {status === "PENDING" ? (
+          <SPendingStatus>
+            <SIconWrapper onClick={() => navigate(`/task/${_id}`)}>
+              <TimerIcon />
+            </SIconWrapper>
+          </SPendingStatus>
+        ) : (
+          <SCompletedStatus>
+            <SIconWrapper onClick={() => navigate(`/task/${_id}`)}>
+              <CheckMarkIcon />
+            </SIconWrapper>
+          </SCompletedStatus>
+        )}
 
         <SCardActions>
-          <SIconWrapper onClick={handleOpenModal}>
+          <SIconWrapper onClick={() => navigate(`/task/${_id}`)}>
             <EditIcon />
+            {/* <Link to={`/task/${_id}`}>Edit</Link> */}
           </SIconWrapper>
-          <SIconWrapper onClick={handleOpenModal}>
+          <SIconWrapper onClick={() => navigate(`/task/${_id}`)}>
             <RemoveIcon />
           </SIconWrapper>
         </SCardActions>
